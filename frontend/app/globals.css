@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Font (Inter) loaded via CDN in layout.tsx ── */
+
+/* ── Custom keyframe animations not expressible in Tailwind config ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(84, 224, 160, 0.5); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 5px rgba(84, 224, 160, 0); }
+}
+@keyframes scan-line {
+  0%   { top: 0%; opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes door-slide-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-85%); }
+}
+@keyframes door-slide-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(85%); }
+}
+@keyframes flow-line {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes flow-reverse {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 24; }
+}
+
+/* ── Control Center Background Grid & Typography Baseline ── */
+body {
+  background-color: #05080d;
+  background-image: 
+    radial-gradient(ellipse at 50% -10%, rgba(45, 156, 255, 0.05), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  background-position: 0 0, -1px -1px, -1px -1px;
+  color: #f1f5f9;
+}
+
+/* ── Monospace Tabular Numbers for Telemetry ── */
+.font-mono, [data-tabular] {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ── Scrollbar (dark) ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #080d14; }
+::-webkit-scrollbar-thumb { background: #1b2635; border-radius: 99px; }
+
+/* ── Selection ── */
+::selection { background: rgba(45, 156, 255, 0.25); color: #ffffff; }
